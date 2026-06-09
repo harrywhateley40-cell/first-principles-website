@@ -1,0 +1,30 @@
+---
+const logos = ["Preply", "YouTube", "MathPID", "Save My Exams"];
+---
+
+<section class="cred" style="padding:0;">
+	<div class="wrap" style="padding:0;">
+		<div class="cred-row">
+			<div class="cred-cell">
+				<div class="k">Experience</div>
+				<div class="v">~15 yrs</div>
+				<div class="k" style="margin:8px 0 0;text-transform:none;letter-spacing:0;">tutoring since 2014</div>
+			</div>
+			<div class="cred-cell">
+				<div class="k">Students</div>
+				<div class="v">≈1,000</div>
+				<div class="k" style="margin:8px 0 0;text-transform:none;letter-spacing:0;">taught worldwide</div>
+			</div>
+			<div class="cred-cell">
+				<div class="k">Courses</div>
+				<div class="v sm">IB · Cambridge IGCSE &amp; A-Level · NCEA · Further Maths</div>
+			</div>
+			<div class="cred-cell">
+				<div class="k">Trusted by</div>
+				<div class="cred-logos">
+					{logos.map((logo) => <span>{logo}</span>)}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

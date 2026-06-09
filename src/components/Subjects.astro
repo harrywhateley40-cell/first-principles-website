@@ -1,0 +1,76 @@
+---
+import { BOOKING_URL, isExternalBooking } from "../config";
+
+interface Subject {
+	tag: string;
+	title: string;
+	body: string;
+	href?: string;
+}
+
+const subjects: Subject[] = [
+	{
+		tag: "AA · AI · SL · HL",
+		title: "IB Mathematics",
+		body: "Analysis & Approaches and Applications & Interpretation, at both Standard and Higher Level.",
+	},
+	{
+		tag: "IGCSE · AS · A-Level",
+		title: "Cambridge & A-Level",
+		body: "IGCSE, AS and A-Level mathematics across the major examination boards.",
+	},
+	{
+		tag: "A-Level Further",
+		title: "Further Mathematics",
+		body: "The harder material — taught carefully, at the pace it genuinely needs.",
+	},
+	{
+		tag: "NCEA L1–3",
+		title: "NCEA Mathematics",
+		body: "Levels 1 to 3, including the calculus and statistics achievement standards.",
+	},
+	{
+		tag: "AP · SAT",
+		title: "US & International",
+		body: "AP Calculus, SAT maths, and general high-school mathematics taught in English.",
+	},
+	{
+		tag: "Supporting",
+		title: "Economics & Finance",
+		body: "Offered as supporting subjects, drawing on a BCom majoring in finance.",
+	},
+];
+---
+
+<section id="subjects">
+	<div class="wrap">
+		<div class="sec-head reveal">
+			<span class="eyebrow">What I teach</span>
+			<h2 class="display">Tutoring options</h2>
+			<p class="lede">Mathematics first — with economics and finance as supporting subjects.</p>
+		</div>
+		<div class="subj-grid">
+			{
+				subjects.map((subject) => {
+					const href = subject.href ?? BOOKING_URL;
+					const external = subject.href ? subject.href.startsWith("http") : isExternalBooking;
+					return (
+						<a
+							href={href}
+							class="subj-card js-book reveal"
+							target={external ? "_blank" : undefined}
+							rel={external ? "noopener" : undefined}
+						>
+							<div class="tag">{subject.tag}</div>
+							<h3>{subject.title}</h3>
+							<p>{subject.body}</p>
+							<span class="more">
+								Explore <span class="arr">&rarr;</span>
+							</span>
+						</a>
+					);
+				})
+			}
+		</div>
+	</div>
+</section>

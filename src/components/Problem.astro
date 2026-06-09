@@ -1,0 +1,50 @@
+---
+const cards = [
+	{
+		num: "01",
+		title: "Frozen in the exam",
+		body: "You can follow every worked example in class, then open a past paper and can't find the first step.",
+	},
+	{
+		num: "02",
+		title: "Methods without meaning",
+		body: "You've learned the steps by heart, but no one ever explained why they actually work.",
+	},
+	{
+		num: "03",
+		title: "Quiet gaps",
+		body: "Something from an earlier year slipped past — and now it quietly makes everything above it harder.",
+	},
+	{
+		num: "04",
+		title: "Heavier than it should be",
+		body: "It feels like maths should make more sense than this. Pushing through on memory alone is exhausting.",
+	},
+];
+---
+
+<section id="problem">
+	<div class="wrap">
+		<div class="sec-head reveal">
+			<span class="eyebrow">The usual story</span>
+			<h2 class="display">You're not bad at maths. Something earlier just didn't <em>land</em>.</h2>
+			<p class="lede">
+				Nearly every student I meet is stuck for one of a few reasons — and almost none of them are about
+				ability.
+			</p>
+		</div>
+		<div class="prob-grid">
+			{
+				cards.map((card) => (
+					<div class="prob-card reveal">
+						<span class="prob-num">{card.num}</span>
+						<div>
+							<h3>{card.title}</h3>
+							<p>{card.body}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

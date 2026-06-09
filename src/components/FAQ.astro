@@ -1,0 +1,59 @@
+---
+const faqs = [
+	{
+		q: "Which maths courses do you teach?",
+		a: "IB, Cambridge IGCSE & A-Level, Further Maths, NCEA, and US courses including AP Calculus and SAT maths — plus general high-school mathematics and some selected university-level topics.",
+		open: true,
+	},
+	{
+		q: "Do you teach both IB Maths AA and AI?",
+		a: "Yes — both Analysis & Approaches and Applications & Interpretation, at Standard and Higher Level. The majority of my tutoring has been IB mathematics.",
+	},
+	{
+		q: "Do you teach Further Mathematics?",
+		a: "Yes, including the harder A-Level Further content. It's taught carefully and at the pace the material genuinely needs.",
+	},
+	{
+		q: "How does the free intro lesson work?",
+		a: "It's a free 30-minute online session to talk through where you're at, what you're aiming for, and whether we're a good fit. There's no obligation to continue afterwards.",
+	},
+	{
+		q: "Do you offer lesson packages?",
+		a: "Yes — single hours at $50, or a 6-hour package at $250, which saves $50 compared with booking six hours individually.",
+	},
+	{
+		q: "Do you help with exam preparation?",
+		a: "Very much so. Past papers, technique, timing and exam temperament are a core part of what we do in the run-up to exams.",
+	},
+	{
+		q: "Do you teach university students?",
+		a: "For selected topics, yes — particularly calculus, statistics, economics and finance. If you're unsure whether your topic fits, just ask in the intro.",
+	},
+	{
+		q: "What if my child has lost confidence in maths?",
+		a: "That's one of the most common reasons people get in touch. We rebuild it quietly, starting from what they do understand and working outward — never making them feel small for struggling.",
+	},
+];
+---
+
+<section id="faq" class="faq">
+	<div class="wrap faq-grid">
+		<div class="sec-head reveal" style="position:sticky;top:96px;">
+			<span class="eyebrow">Questions</span>
+			<h2 class="display">Good to know</h2>
+			<p class="lede" style="font-size:17px;">Can't see your question? The free intro is the easiest way to ask.</p>
+		</div>
+		<div class="faq-list reveal">
+			{
+				faqs.map((faq) => (
+					<details class="faq-item" open={faq.open}>
+						<summary>
+							{faq.q} <span class="pm">+</span>
+						</summary>
+						<div class="ans">{faq.a}</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

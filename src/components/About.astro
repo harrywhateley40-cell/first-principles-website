@@ -1,0 +1,31 @@
+---
+import ImagePlaceholder from "./ImagePlaceholder.astro";
+
+const chips = ["Tutoring since 2014", "BCom, Finance", "Taught worldwide", "Save My Exams", "MathPID"];
+---
+
+<section id="about">
+	<div class="wrap about-grid">
+		<div class="hero-figure reveal">
+			<ImagePlaceholder size="short" caption="[ photo — Harry, natural / teaching ]" />
+		</div>
+		<div class="about-body reveal">
+			<span class="eyebrow">About</span>
+			<h2 class="display">Hello — I'm Harry.</h2>
+			<p>
+				I've been tutoring mathematics since 2014 — around fifteen years and close to a thousand students,
+				taught everywhere from Auckland to Germany, usually with nothing more than a laptop and an iPad. I
+				have a BCom majoring in finance, and I've helped build IB maths content for Save My Exams and
+				MathPID — so I've seen the subject from both the teaching and the curriculum side.
+			</p>
+			<p>I don't pretend maths is easy for everyone. Different people get stuck on different things, and that's completely normal.</p>
+			<p class="about-pull">
+				Maths isn't easy for everyone. Good tutoring should make it clearer — without ever making you feel
+				small for finding it hard.
+			</p>
+			<div class="chips">
+				{chips.map((chip) => <span class="chip">{chip}</span>)}
+			</div>
+		</div>
+	</div>
+</section>

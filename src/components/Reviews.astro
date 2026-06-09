@@ -1,0 +1,58 @@
+---
+const reviews = [
+	{
+		quote: "He explains things clearly and makes the challenging topics easier to understand. Patient, and makes learning enjoyable.",
+		initial: "I",
+		name: "Ilias",
+	},
+	{
+		quote: "Genuinely grade-saving. Very professional, effective, and enjoyable. Highly recommend.",
+		initial: "F",
+		name: "Fredo",
+	},
+	{
+		quote: "He has a good way of explaining his process of thinking through a question — and he'll record a video if I'm ever stuck.",
+		initial: "R",
+		name: "Ryan",
+	},
+];
+---
+
+<section id="reviews" class="reviews">
+	<div class="wrap">
+		<div class="rev-top reveal">
+			<div class="sec-head" style="margin:0;">
+				<span class="eyebrow">Proof</span>
+				<h2 class="display">What students and parents say</h2>
+			</div>
+			<div class="rev-score">
+				<div class="num">5.0</div>
+				<div>
+					<div class="stars">★★★★★</div>
+					<div class="meta">Preply · 2,250+ lessons taught</div>
+				</div>
+			</div>
+		</div>
+		<div class="rev-grid">
+			{
+				reviews.map((review) => (
+					<div class="rev-card reveal">
+						<div class="stars">★★★★★</div>
+						<blockquote>{review.quote}</blockquote>
+						<div class="who">
+							<div class="av">{review.initial}</div>
+							<div>
+								<div class="nm">{review.name}</div>
+								<div class="src">Preply review</div>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+		<p class="rev-note">
+			Placeholder quotes drawn from Harry's public Preply profile — to be curated and joined by YouTube
+			comments and parent testimonials.
+		</p>
+	</div>
+</section>

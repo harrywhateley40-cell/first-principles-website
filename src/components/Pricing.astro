@@ -1,0 +1,38 @@
+---
+import BookLink from "./BookLink.astro";
+---
+
+<section id="pricing">
+	<div class="wrap">
+		<div class="sec-head center reveal">
+			<span class="eyebrow">Pricing</span>
+			<h2 class="display">Simple, honest pricing</h2>
+			<p class="lede">Start with a free intro. Continue only if it feels like the right fit.</p>
+		</div>
+		<div class="price-grid">
+			<div class="price-card reveal">
+				<div class="pk">Start here</div>
+				<div class="price-amt"><span class="a">Free</span></div>
+				<div class="pk" style="text-transform:none;letter-spacing:0;color:var(--ink-2);">30-minute intro</div>
+				<p>A proper conversation and a look at where you're at. No pressure to continue.</p>
+				<BookLink class="btn ghost js-book">Book the intro</BookLink>
+			</div>
+			<div class="price-card reveal">
+				<div class="pk">Single lesson</div>
+				<div class="price-amt"><span class="a">$50</span><span class="u">/ hour</span></div>
+				<div class="pk" style="text-transform:none;letter-spacing:0;color:var(--ink-2);">one-to-one, online</div>
+				<p>One-to-one online tutoring, booked whenever you need it. No commitment.</p>
+				<BookLink class="btn ghost js-book">Book a lesson</BookLink>
+			</div>
+			<div class="price-card feat reveal">
+				<span class="ribbon">Best value · save $50</span>
+				<div class="pk">6-hour package</div>
+				<div class="price-amt"><span class="a">$250</span><span class="u">/ 6 hours</span></div>
+				<div class="pk" style="text-transform:none;letter-spacing:0;color:var(--ink-2);">six hours of tutoring</div>
+				<p>The best way to make real progress — enough time to work through things properly.</p>
+				<BookLink class="btn primary js-book">Start the package <span class="arr">&rarr;</span></BookLink>
+			</div>
+		</div>
+		<p class="price-note">Prices in USD. Specialist university-level or unusual work may vary — just ask.</p>
+	</div>
+</section>

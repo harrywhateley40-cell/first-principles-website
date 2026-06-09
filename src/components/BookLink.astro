@@ -1,0 +1,18 @@
+---
+import { BOOKING_URL, isExternalBooking } from "../config";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<a
+	href={BOOKING_URL}
+	class={className}
+	target={isExternalBooking ? "_blank" : undefined}
+	rel={isExternalBooking ? "noopener" : undefined}
+>
+	<slot />
+</a>

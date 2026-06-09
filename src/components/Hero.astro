@@ -1,0 +1,26 @@
+---
+import BookLink from "./BookLink.astro";
+import ImagePlaceholder from "./ImagePlaceholder.astro";
+---
+
+<section class="hero">
+	<div class="wrap hero-grid">
+		<div class="hero-copy">
+			<span class="eyebrow">Understanding before memorisation</span>
+			<h1 class="display">Maths tutoring built on clear thinking and strong <em>foundations</em>.</h1>
+			<p class="lede">
+				Experienced online tutoring for IB, Cambridge, NCEA, Further Maths and international students —
+				clear explanations, proper exam preparation, and honest feedback.
+			</p>
+			<div class="hero-cta">
+				<BookLink class="btn primary js-book">Book a free 30-min intro <span class="arr">&rarr;</span></BookLink>
+				<a href="#pricing" class="btn ghost">View pricing</a>
+			</div>
+			<p class="hero-micro"><b>Free</b> 30-minute intro &nbsp;·&nbsp; online &nbsp;·&nbsp; students worldwide</p>
+		</div>
+		<div class="hero-figure">
+			<div class="grid-bg"></div>
+			<ImagePlaceholder size="tall" caption="[ photo — Harry, tutoring online ]" />
+		</div>
+	</div>
+</section>

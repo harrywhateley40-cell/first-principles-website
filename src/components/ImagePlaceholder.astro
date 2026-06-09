@@ -1,0 +1,14 @@
+---
+interface Props {
+	caption: string;
+	size?: "tall" | "short";
+	class?: string;
+}
+
+const { caption, size, class: className = "" } = Astro.props;
+const sizeClass = size ? ` ${size}` : "";
+---
+
+<div class={`imgph${sizeClass} ${className}`.trim()}>
+	<span class="cap">{caption}</span>
+</div>

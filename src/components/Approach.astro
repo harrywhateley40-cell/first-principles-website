@@ -1,0 +1,56 @@
+---
+const steps = [
+	{
+		num: "01",
+		title: "Find the gaps",
+		body: "We work out exactly where the understanding broke down — usually further back than expected.",
+	},
+	{
+		num: "02",
+		title: "Rebuild the foundations",
+		body: "We make the underlying ideas solid, so everything built on top of them actually holds.",
+	},
+	{
+		num: "03",
+		title: "Understand the why",
+		body: "You learn why each method works — not just a sequence of steps to copy and hope.",
+	},
+	{
+		num: "04",
+		title: "Practise exam-style",
+		body: "We apply it to real past-paper questions, under the conditions you'll actually sit.",
+	},
+	{
+		num: "05",
+		title: "Build independence",
+		body: "The goal isn't more tutoring. It's you, solving the next one without me.",
+	},
+];
+---
+
+<section id="approach" class="approach">
+	<div class="grid-bg"></div>
+	<div class="wrap">
+		<div class="sec-head">
+			<span class="eyebrow">The approach</span>
+			<h2 class="display">A method, not a magic trick.</h2>
+			<p class="lede">
+				Every student is different, but the shape of good tutoring stays the same. We start from first
+				principles and build upward — until the work holds on its own.
+			</p>
+		</div>
+		<div class="steps">
+			{
+				steps.map((step) => (
+					<div class="step">
+						<div class="sn">{step.num}</div>
+						<div class="sbody">
+							<h3>{step.title}</h3>
+							<p>{step.body}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
