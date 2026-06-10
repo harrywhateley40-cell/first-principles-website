@@ -1,13 +1,13 @@
-// Booking integration point: replace with the live Google Calendar
-// appointment-scheduling link, e.g. "https://calendar.app.google/XXXXXXXX".
-// Until set, every booking CTA links to the in-page #book section.
-export const BOOKING_URL = "#book";
+// Booking integration point. Set PUBLIC_BOOKING_URL in Vercel to the live
+// Google Calendar appointment link. Until set, CTAs link to the in-page #book
+// section so the site still has a clear local destination.
+export const BOOKING_URL = import.meta.env.PUBLIC_BOOKING_URL || "#book";
 
-export const isExternalBooking = BOOKING_URL !== "#book";
+export const isExternalBooking = BOOKING_URL.startsWith("http");
 
-// Replace this with the live production domain before launch. Keeping it in
-// one place makes canonical links, sitemap URLs, and schema easier to maintain.
-export const SITE_URL = "https://firstprinciplestutoring.com";
+// Set PUBLIC_SITE_URL in Vercel if the production domain changes. Keeping this
+// central makes canonical links, sitemap URLs and schema easier to maintain.
+export const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://firstprinciplestutoring.com";
 
 export const SITE_NAME = "First Principles";
 export const TUTOR_NAME = "Harry Whateley";
