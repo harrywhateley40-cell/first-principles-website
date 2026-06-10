@@ -1,0 +1,43 @@
+---
+const groups = [
+	{
+		tag: "For parents",
+		title: "You want clarity, not vague reassurance.",
+		body: "You need to know what is actually going wrong, what to practise next, and whether your child is becoming more independent.",
+	},
+	{
+		tag: "For ambitious students",
+		title: "You want harder questions to feel less random.",
+		body: "We work on the ideas behind the method, then practise exam-style problems until the first step becomes easier to see.",
+	},
+	{
+		tag: "For students rebuilding confidence",
+		title: "You need a calm way back in.",
+		body: "We start from what you do understand, fix the missing pieces, and build momentum without making struggle feel embarrassing.",
+	},
+];
+---
+
+<section id="fit">
+	<div class="wrap">
+		<div class="sec-head reveal">
+			<span class="eyebrow">Who it helps</span>
+			<h2 class="display">Different students need different kinds of support.</h2>
+			<p class="lede">
+				Good tutoring should not feel like a generic extra class. It should match the reason the student is
+				stuck, the pressure they are under, and the result they are working toward.
+			</p>
+		</div>
+		<div class="subj-grid">
+			{
+				groups.map((group) => (
+					<div class="subj-card reveal">
+						<div class="tag">{group.tag}</div>
+						<h3>{group.title}</h3>
+						<p>{group.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

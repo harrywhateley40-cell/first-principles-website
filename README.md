@@ -1,43 +1,78 @@
-# Astro Starter Kit: Minimal
+# First Principles Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Astro/Tailwind website for First Principles, an online maths tutoring business led by Harry Whateley.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site is designed to do three jobs:
 
-## 🚀 Project Structure
+- build trust with parents and students
+- convert qualified visitors into free intro bookings
+- create focused SEO pages for high-intent tutoring searches
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
 /
 ├── public/
+│   └── favicon.svg
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/        # Homepage sections and reusable page components
+│   ├── data/              # Content data used to generate scalable pages
+│   ├── layouts/           # Shared HTML shell, metadata and schema
+│   ├── pages/             # Astro routes
+│   ├── styles/            # Global design system and responsive styles
+│   └── config.ts          # Site-wide business constants
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Key Ideas
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+`src/pages/index.astro` is the homepage. It assembles the page from section components such as `Hero`, `Subjects`, `Reviews`, `Pricing`, and `FAQ`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+`src/data/subjectPages.ts` contains subject landing page content. Each object in that file becomes a page through `src/pages/[slug].astro`.
 
-## 🧞 Commands
+This data-driven pattern keeps the site beginner-readable while avoiding copy-pasted pages. To add a new subject page, add one object to `subjectPages`.
 
-All commands are run from the root of the project, from a terminal:
+`src/layouts/Layout.astro` owns the shared metadata: title, description, canonical URL, Open Graph tags, Twitter card tags, and optional JSON-LD schema.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Commands
 
-## 👀 Want to learn more?
+```sh
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `npm run dev` starts the local development server.
+- `npm run build` creates the production site in `dist/`.
+- `npm run preview` previews the built site locally.
+
+## Launch Checklist
+
+- Set `PUBLIC_SITE_URL` in Vercel to the live domain.
+- Set `PUBLIC_BOOKING_URL` in Vercel to the real booking link.
+- Replace placeholder visual treatment with real, high-trust photography.
+- Verify that all testimonials are approved for use.
+- Submit `/sitemap.xml` in Google Search Console.
+- Add analytics and conversion tracking once the booking flow is live.
+
+## Environment Variables
+
+These are optional for local development, but should be set in Vercel before launch:
+
+```sh
+PUBLIC_SITE_URL=https://firstprinciplestutoring.com
+PUBLIC_BOOKING_URL=https://calendar.app.google/your-booking-link
+```
+
+If `PUBLIC_BOOKING_URL` is missing, booking buttons fall back to the in-page `#book` section.
+
+## Current SEO Foundation
+
+- Dedicated subject landing pages generated from structured data.
+- Canonical URLs and social metadata.
+- JSON-LD schema for the homepage, tutoring services, and FAQs.
+- Generated `sitemap.xml`.
+- Generated `robots.txt`.

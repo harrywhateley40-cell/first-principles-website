@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Credibility from "../components/Credibility.astro";
 import Problem from "../components/Problem.astro";
+import Fit from "../components/Fit.astro";
 import Approach from "../components/Approach.astro";
 import Subjects from "../components/Subjects.astro";
 import Reviews from "../components/Reviews.astro";
@@ -12,14 +13,49 @@ import About from "../components/About.astro";
 import FAQ from "../components/FAQ.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 import Footer from "../components/Footer.astro";
+import { SITE_NAME, SITE_URL, TUTOR_NAME } from "../config";
+import { homeFaqs } from "../data/homeFaqs";
+
+const homeSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		name: TUTOR_NAME,
+		url: SITE_URL,
+		brand: SITE_NAME,
+		jobTitle: "Online maths tutor",
+		knowsAbout: ["IB Mathematics", "A-Level Mathematics", "Further Mathematics", "NCEA Mathematics"],
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "EducationalOrganization",
+		name: SITE_NAME,
+		url: SITE_URL,
+		description:
+			"Online maths tutoring for IB, Cambridge, A-Level, Further Maths, NCEA and international students.",
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: homeFaqs.map((faq) => ({
+			"@type": "Question",
+			name: faq.q,
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: faq.a,
+			},
+		})),
+	},
+];
 ---
 
-<Layout>
+<Layout schema={homeSchema}>
 	<Header />
 	<main id="top">
 		<Hero />
 		<Credibility />
 		<Problem />
+		<Fit />
 		<Approach />
 		<Subjects />
 		<Reviews />
