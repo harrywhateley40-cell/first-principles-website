@@ -1,0 +1,158 @@
+---
+import BookLink from "./BookLink.astro";
+import type { SubjectPage } from "../data/subjectPages";
+
+interface Props {
+	page: SubjectPage;
+}
+
+const { page } = Astro.props;
+---
+
+<main id="top">
+	<section class="subject-hero">
+		<div class="wrap subject-hero-grid">
+			<div>
+				<a href="/" class="back-link">&larr; Back to home</a>
+				<span class="eyebrow">{page.eyebrow}</span>
+				<h1 class="display">{page.heroTitle}</h1>
+				<p class="lede">{page.heroBody}</p>
+				<div class="hero-cta">
+					<BookLink class="btn primary js-book">Book a free intro <span class="arr">&rarr;</span></BookLink>
+					<a href="#fit" class="btn ghost">See if it fits</a>
+				</div>
+			</div>
+			<aside class="trust-panel" aria-label="Tutoring summary">
+				<div class="panel-k">First Principles tutoring</div>
+				<ul>
+					<li>One-to-one online lessons</li>
+					<li>Free 30-minute intro</li>
+					<li>Past-paper and exam preparation</li>
+					<li>Clear feedback for students and parents</li>
+				</ul>
+			</aside>
+		</div>
+	</section>
+
+	<section id="fit" class="subject-section">
+		<div class="wrap subject-three">
+			<div class="subject-block reveal">
+				<span class="eyebrow">Best for</span>
+				<h2 class="display">Who this helps</h2>
+				<ul class="clean-list">
+					{page.bestFor.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+			<div class="subject-block reveal">
+				<span class="eyebrow">Common issues</span>
+				<h2 class="display">Where students get stuck</h2>
+				<ul class="clean-list">
+					{page.painPoints.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+			<div class="subject-block reveal">
+				<span class="eyebrow">Outcomes</span>
+				<h2 class="display">What we work toward</h2>
+				<ul class="clean-list">
+					{page.outcomes.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="approach subject-method">
+		<div class="grid-bg"></div>
+		<div class="wrap">
+			<div class="sec-head">
+				<span class="eyebrow">How lessons work</span>
+				<h2 class="display">First diagnose, then build.</h2>
+				<p class="lede">
+					The first useful question is not "how many hours do you need?" It is "what is actually
+					stopping progress?" Once that is clear, lessons become much more focused.
+				</p>
+			</div>
+			<div class="steps">
+				<div class="step">
+					<div class="sn">01</div>
+					<div class="sbody">
+						<h3>Find the pattern</h3>
+						<p>We look at recent work, mistakes and confidence to find the gap behind the symptoms.</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="sn">02</div>
+					<div class="sbody">
+						<h3>Rebuild the idea</h3>
+						<p>The concept is explained from first principles, with enough practice to make it usable.</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="sn">03</div>
+					<div class="sbody">
+						<h3>Apply it under exam conditions</h3>
+						<p>We move into exam-style questions so the student can recognise the idea in the wild.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="faq">
+		<div class="wrap faq-grid">
+			<div class="sec-head reveal" style="position:sticky;top:96px;">
+				<span class="eyebrow">Questions</span>
+				<h2 class="display">{page.title} FAQ</h2>
+				<p class="lede" style="font-size:17px;">The free intro is the easiest place to ask about a specific course, school or exam timeline.</p>
+			</div>
+			<div class="faq-list reveal">
+				{
+					page.faqs.map((faq, index) => (
+						<details class="faq-item" open={index === 0}>
+							<summary>
+								{faq.q} <span class="pm">+</span>
+							</summary>
+							<div class="ans">{faq.a}</div>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section id="book" class="final">
+		<div class="grid-bg"></div>
+		<div class="wrap">
+			<h2 class="display">Start with a free 30-minute intro.</h2>
+			<p class="lede">Bring the course, the exam date, a recent paper, or just the feeling that maths needs to make more sense.</p>
+			<BookLink class="btn light js-book">Book a free intro <span class="arr">&rarr;</span></BookLink>
+		</div>
+	</section>
+</main>
+
+<style>
+	.subject-hero{ padding-top:72px; padding-bottom:88px; overflow:hidden; }
+	.subject-hero-grid{ display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:64px; align-items:center; }
+	.subject-hero h1{ font-size:clamp(38px,5vw,60px); line-height:1.08; margin-top:22px; max-width:760px; }
+	.subject-hero .lede{ margin-top:28px; max-width:720px; }
+	.back-link{ display:inline-flex; margin-bottom:28px; font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--ink-3); }
+	.back-link:hover{ color:var(--accent); }
+	.trust-panel{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px; box-shadow:0 26px 50px -34px rgba(31,74,71,.45); }
+	.trust-panel .panel-k{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-soft); margin-bottom:18px; }
+	.trust-panel ul{ margin:0; padding:0; list-style:none; display:grid; gap:14px; }
+	.trust-panel li{ color:var(--ink-2); font-size:15.5px; padding-left:22px; position:relative; }
+	.trust-panel li::before{ content:""; position:absolute; left:0; top:.72em; width:8px; height:8px; border-radius:50%; background:var(--warm); }
+	.subject-section{ background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+	.subject-three{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; }
+	.subject-block{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:30px; }
+	.subject-block h2{ font-size:30px; margin-top:16px; }
+	.clean-list{ list-style:none; padding:0; margin:24px 0 0; display:grid; gap:13px; }
+	.clean-list li{ color:var(--ink-2); font-size:15.5px; padding-left:22px; position:relative; }
+	.clean-list li::before{ content:""; position:absolute; left:0; top:.72em; width:7px; height:7px; background:var(--accent-soft); transform:rotate(45deg); }
+	.subject-method{ padding-top:88px; padding-bottom:88px; }
+
+	@media(max-width:980px){
+		.subject-hero-grid{ grid-template-columns:1fr; gap:34px; }
+		.trust-panel{ max-width:520px; }
+		.subject-three{ grid-template-columns:1fr; }
+	}
+</style>

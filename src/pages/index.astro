@@ -12,9 +12,30 @@ import About from "../components/About.astro";
 import FAQ from "../components/FAQ.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 import Footer from "../components/Footer.astro";
+import { SITE_NAME, SITE_URL, TUTOR_NAME } from "../config";
+
+const homeSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		name: TUTOR_NAME,
+		url: SITE_URL,
+		brand: SITE_NAME,
+		jobTitle: "Online maths tutor",
+		knowsAbout: ["IB Mathematics", "A-Level Mathematics", "Further Mathematics", "NCEA Mathematics"],
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "EducationalOrganization",
+		name: SITE_NAME,
+		url: SITE_URL,
+		description:
+			"Online maths tutoring for IB, Cambridge, A-Level, Further Maths, NCEA and international students.",
+	},
+];
 ---
 
-<Layout>
+<Layout schema={homeSchema}>
 	<Header />
 	<main id="top">
 		<Hero />

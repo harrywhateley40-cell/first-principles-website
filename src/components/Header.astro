@@ -2,22 +2,23 @@
 import BookLink from "./BookLink.astro";
 
 const navLinks = [
-	{ href: "#subjects", label: "Subjects" },
-	{ href: "#approach", label: "Approach" },
-	{ href: "#pricing", label: "Pricing" },
-	{ href: "#reviews", label: "Reviews" },
-	{ href: "#faq", label: "FAQ" },
+	{ href: "/#subjects", label: "Subjects" },
+	{ href: "/#approach", label: "Approach" },
+	{ href: "/online-maths-tutor-for-parents/", label: "For parents" },
+	{ href: "/#pricing", label: "Pricing" },
+	{ href: "/#reviews", label: "Reviews" },
+	{ href: "/#faq", label: "FAQ" },
 ];
 ---
 
 <header class="site-head" id="head">
 	<div class="wrap head-row">
-		<a href="#top" class="brand"><span class="seal"></span> First Principles</a>
+		<a href="/" class="brand"><span class="seal"></span> First Principles</a>
 		<nav class="nav">
 			{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
 		</nav>
 		<div class="head-cta">
-			<a href="#pricing" class="btn ghost">View pricing</a>
+			<a href="/#pricing" class="btn ghost">View pricing</a>
 			<BookLink class="btn primary js-book">Book a free intro <span class="arr">&rarr;</span></BookLink>
 			<button class="menu-btn" id="menuBtn" aria-label="Menu"><i></i><i></i><i></i></button>
 		</div>
@@ -25,7 +26,7 @@ const navLinks = [
 	<div class="m-nav" id="mNav">
 		<div class="wrap">
 			{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
-			<a href="#book">Book a free intro</a>
+			<a href="/#book">Book a free intro</a>
 		</div>
 	</div>
 </header>

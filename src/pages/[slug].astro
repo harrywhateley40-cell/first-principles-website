@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SubjectLanding from "../components/SubjectLanding.astro";
+import { SITE_URL, TUTOR_NAME } from "../config";
+import { subjectPages } from "../data/subjectPages";
+
+export function getStaticPaths() {
+	return subjectPages.map((page) => ({
+		params: { slug: page.slug },
+		props: { page },
+	}));
+}
+
+const { page } = Astro.props;
+const canonicalPath = `/${page.slug}/`;
+const pageUrl = new URL(canonicalPath, SITE_URL).toString();
+
+const schema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Service",
+		name: page.title,
+		description: page.description,
+		provider: {
+			"@type": "Person",
+			name: TUTOR_NAME,
+		},
+		areaServed: "Worldwide",
+		serviceType: "Online maths tutoring",
+		url: pageUrl,
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: page.faqs.map((faq) => ({
+			"@type": "Question",
+			name: faq.q,
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: faq.a,
+			},
+		})),
+	},
+];
+---
+
+<Layout title={page.metaTitle} description={page.description} canonicalPath={canonicalPath} schema={schema}>
+	<Header />
+	<SubjectLanding page={page} />
+	<Footer />
+</Layout>
