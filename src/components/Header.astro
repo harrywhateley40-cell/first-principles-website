@@ -20,13 +20,13 @@ const navLinks = [
 		<div class="head-cta">
 			<a href="/#pricing" class="btn ghost">View pricing</a>
 			<BookLink class="btn primary js-book">Book a free intro <span class="arr">&rarr;</span></BookLink>
-			<button class="menu-btn" id="menuBtn" aria-label="Menu"><i></i><i></i><i></i></button>
+			<button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-controls="mNav" aria-expanded="false"><i></i><i></i><i></i></button>
 		</div>
 	</div>
 	<div class="m-nav" id="mNav">
 		<div class="wrap">
 			{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
-			<a href="/#book">Book a free intro</a>
+			<BookLink class="js-book">Book a free intro</BookLink>
 		</div>
 	</div>
 </header>
@@ -39,14 +39,18 @@ const navLinks = [
 
 	const menuBtn = document.getElementById("menuBtn")!;
 	const mNav = document.getElementById("mNav")!;
+	const setMenuOpen = (isOpen: boolean) => {
+		menuBtn.classList.toggle("open", isOpen);
+		mNav.classList.toggle("open", isOpen);
+		menuBtn.setAttribute("aria-expanded", String(isOpen));
+	};
+
 	menuBtn.addEventListener("click", () => {
-		menuBtn.classList.toggle("open");
-		mNav.classList.toggle("open");
+		setMenuOpen(!mNav.classList.contains("open"));
 	});
 	mNav.querySelectorAll("a").forEach((a) =>
 		a.addEventListener("click", () => {
-			menuBtn.classList.remove("open");
-			mNav.classList.remove("open");
+			setMenuOpen(false);
 		}),
 	);
 </script>
