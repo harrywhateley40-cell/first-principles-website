@@ -51,12 +51,23 @@ npm run preview
 
 ## Launch Checklist
 
-- Replace `SITE_URL` in `src/config.ts` with the live domain.
-- Replace `BOOKING_URL` in `src/config.ts` with the real booking link.
+- Set `PUBLIC_SITE_URL` in Vercel to the live domain.
+- Set `PUBLIC_BOOKING_URL` in Vercel to the real booking link.
 - Replace placeholder visual treatment with real, high-trust photography.
 - Verify that all testimonials are approved for use.
 - Submit `/sitemap.xml` in Google Search Console.
 - Add analytics and conversion tracking once the booking flow is live.
+
+## Environment Variables
+
+These are optional for local development, but should be set in Vercel before launch:
+
+```sh
+PUBLIC_SITE_URL=https://firstprinciplestutoring.com
+PUBLIC_BOOKING_URL=https://calendar.app.google/your-booking-link
+```
+
+If `PUBLIC_BOOKING_URL` is missing, booking buttons fall back to the in-page `#book` section.
 
 ## Current SEO Foundation
 
