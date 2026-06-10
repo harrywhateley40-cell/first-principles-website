@@ -281,11 +281,22 @@ section{ padding:var(--sec-pad) 0; position:relative; }
   .step{ grid-template-columns:64px 1fr; gap:20px; }
   .step .sn{ font-size:36px; }
 }
-@media(max-width:760px){
+@media(max-width:1100px){
   .nav{ display:none; }
   .head-cta .btn.ghost{ display:none; }
   .menu-btn{ display:flex; }
   .head-cta{ gap:10px; }
+  /* Header switches earlier than the main page layout so tablets do not overflow. */
+  .m-nav{ display:block; max-height:0; overflow:hidden; transition:max-height .3s ease; background:var(--paper); border-bottom:1px solid transparent; }
+  .m-nav.open{ max-height:420px; border-color:var(--line); }
+  .m-nav .wrap{ display:flex; flex-direction:column; padding-top:8px; padding-bottom:20px; }
+  .m-nav a{ padding:14px 0; font-size:17px; border-bottom:1px solid var(--line); color:var(--ink); font-family:var(--display); }
+  .m-nav a:last-child{ border-bottom:0; }
+  .menu-btn.open i:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .menu-btn.open i:nth-child(2){ opacity:0; }
+  .menu-btn.open i:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+@media(max-width:760px){
   .cred-row{ grid-template-columns:1fr 1fr; }
   .cred-cell:nth-child(2){ border-right:0; }
   .cred-cell:nth-child(1),.cred-cell:nth-child(2){ border-bottom:1px solid var(--line); }
@@ -295,15 +306,6 @@ section{ padding:var(--sec-pad) 0; position:relative; }
   .price-grid{ grid-template-columns:1fr; }
   .foot-grid{ grid-template-columns:1fr 1fr; gap:30px; }
   .foot-brand{ grid-column:1 / -1; }
-  /* mobile nav drawer */
-  .m-nav{ display:block; max-height:0; overflow:hidden; transition:max-height .3s ease; background:var(--paper); border-bottom:1px solid transparent; }
-  .m-nav.open{ max-height:420px; border-color:var(--line); }
-  .m-nav .wrap{ display:flex; flex-direction:column; padding-top:8px; padding-bottom:20px; }
-  .m-nav a{ padding:14px 0; font-size:17px; border-bottom:1px solid var(--line); color:var(--ink); font-family:var(--display); }
-  .m-nav a:last-child{ border-bottom:0; }
-  .menu-btn.open i:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .menu-btn.open i:nth-child(2){ opacity:0; }
-  .menu-btn.open i:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 }
 @media(max-width:480px){
   .wrap{ padding:0 20px; }
